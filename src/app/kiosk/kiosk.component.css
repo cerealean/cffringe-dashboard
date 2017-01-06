@@ -1,0 +1,18 @@
+.column {
+    width: 18%;
+    min-height: 800px;
+    display: inline-block;
+    opacity: 0.75;
+    margin: 0 30px 0 30px;
+    background-color: #505050;
+}
+
+.column:hover {
+    opacity: 1;
+}
+
+#kiosk-page {
+    background-size: contain;
+    background: dimgrey url("/assets/images/wolfie.png") no-repeat center;
+    color: white;
+}

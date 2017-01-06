@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     templateUrl: './kiosk.component.html',
-    styleUrls: ['./kiosk.component.css'],
+    styleUrls: ['../app.component.css', './kiosk.component.css'],
     moduleId: 'kiosk'
 })
 export class KioskComponent {
