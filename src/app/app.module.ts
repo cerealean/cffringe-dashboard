@@ -7,7 +7,6 @@ import {RouterModule, Routes} from '@angular/router';
 import 'hammerjs';
 
 import {AppComponent} from './app.component';
-// import {KioskModule} from './kiosk/kiosk.module';
 
 const appRoutes: Routes = [
     {
@@ -30,8 +29,7 @@ const appRoutes: Routes = [
         FormsModule,
         HttpModule,
         RouterModule.forRoot(appRoutes),
-        MaterialModule.forRoot(),
-        // KioskModule
+        MaterialModule.forRoot()
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -1,4 +1,7 @@
-<h1>
-  {{title}}
-</h1>
-<router-outlet></router-outlet>
+<md-toolbar class="center-items md-primary">
+    <h1>CrossFit Fringe</h1>
+</md-toolbar>
+<md-sidenav-container>
+  <md-sidenav mode="push" opened="true">Side Content</md-sidenav>
+  <router-outlet></router-outlet>
+</md-sidenav-container>
