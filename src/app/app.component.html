@@ -1,8 +1,16 @@
 <md-toolbar class="center-items md-primary">
     <h1>CrossFit Fringe</h1>
 </md-toolbar>
-<md-sidenav-container>
-  <md-sidenav #leftNav mode="push" opened="true">Side Content</md-sidenav>
-    <button (click)="leftNav.toggle()">Click Me</button>
-  <router-outlet></router-outlet>
-</md-sidenav-container>
+<!--<md-sidenav-container>-->
+  <!--<md-sidenav class="left-sidenav" #leftNav mode="side"-->
+              <!--align="left"-->
+              <!--onClose="hideElement(menuIcon)"-->
+              <!--opened="false">-->
+      <!--Side Content-->
+  <!--</md-sidenav>-->
+    <!--<md-icon class="menu-icon"-->
+             <!--[hidden]="leftNav.opened"-->
+             <!--#menuIcon-->
+             <!--(click)="leftNav.toggle()">menu</md-icon>-->
+<!--</md-sidenav-container>-->
+<router-outlet></router-outlet>
