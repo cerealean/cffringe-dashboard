@@ -2,6 +2,7 @@
     <h1>CrossFit Fringe</h1>
 </md-toolbar>
 <md-sidenav-container>
-  <md-sidenav mode="push" opened="true">Side Content</md-sidenav>
+  <md-sidenav #leftNav mode="push" opened="true">Side Content</md-sidenav>
+    <button (click)="leftNav.toggle()">Click Me</button>
   <router-outlet></router-outlet>
 </md-sidenav-container>
