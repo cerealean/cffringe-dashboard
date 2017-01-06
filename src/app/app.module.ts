@@ -3,10 +3,23 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {MaterialModule} from '@angular/material';
-import {RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import 'hammerjs';
 
 import {AppComponent} from './app.component';
+// import {KioskModule} from './kiosk/kiosk.module';
+
+const appRoutes: Routes = [
+    {
+        path: '',
+        redirectTo: '/kiosk',
+        pathMatch: 'full'
+    },
+    {
+        path: 'kiosk',
+        loadChildren: './kiosk/kiosk.module#KioskModule'
+    }
+];
 
 @NgModule({
     declarations: [
@@ -16,8 +29,9 @@ import {AppComponent} from './app.component';
         BrowserModule,
         FormsModule,
         HttpModule,
-        RouterModule,
-        MaterialModule.forRoot()
+        RouterModule.forRoot(appRoutes),
+        MaterialModule.forRoot(),
+        // KioskModule
     ],
     providers: [],
     bootstrap: [AppComponent]
