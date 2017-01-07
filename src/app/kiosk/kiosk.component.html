@@ -6,15 +6,82 @@
     <div class="center-items" style="width: 100%">
         <div class="column">
             <h3>Top Guys</h3>
+            <div>
+                <select class="cf-select" [(ngModel)]="selectedMaleSection">
+                    <option *ngFor="let section of classSections" [value]="section">
+                        {{section.display}}
+                    </option>
+                </select>
+
+                <select class="cf-select" [(ngModel)]="selectedMaleClassTime">
+                    <optgroup label="Classes">
+                        <option *ngFor="let classTime of classTimes" [value]="classTime">{{classTime | date:'hh:mma'}}</option>
+                    </optgroup>
+                    <optgroup label="Timespan">
+                        <option>Morning</option>
+                        <option>Evening</option>
+                        <option>All Day</option>
+                    </optgroup>
+                </select>
+            </div>
+            <hr class="red-divider" />
+            <div class="list">
+                <div class="list-item" *ngFor="let athlete of maleAthletes">
+                    <div class="list-avatar">
+                        <img src="/assets/images/avatars/{{athlete.avatarId}}.jpg" class="icon-rounded-avatar"/>
+                    </div>
+                    <div class="list-description">
+                        <h2 class="list-row">{{athlete.name.first}} {{athlete.name.last}}</h2>
+                        <p class="list-row">Athlete Info</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="column">
             <h3>Top Gals</h3>
+            <div>
+                <select class="cf-select" [(ngModel)]="selectedFemaleSection">
+                    <option *ngFor="let section of classSections" [value]="section">
+                        {{section.display}}
+                    </option>
+                </select>
+
+                <select class="cf-select" [(ngModel)]="selectedFemaleClassTime">
+                    <optgroup label="Classes">
+                        <option *ngFor="let classTime of classTimes" [value]="classTime">{{classTime | date:'hh:mma'}}</option>
+                    </optgroup>
+                    <optgroup label="Timespan">
+                        <option>Morning</option>
+                        <option>Evening</option>
+                        <option>All Day</option>
+                    </optgroup>
+                </select>
+            </div>
+            <hr class="red-divider" />
+            <div class="list">
+                <div class="list-item" *ngFor="let athlete of femaleAthletes">
+                    <div class="list-avatar">
+                        <img src="/assets/images/avatars/{{athlete.avatarId}}.jpg" class="icon-rounded-avatar"/>
+                    </div>
+                    <div class="list-description">
+                        <h2 class="list-row">{{athlete.name.first}} {{athlete.name.last}}</h2>
+                        <p class="list-row">Athlete Info</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="column">
             <h3>Input Scores</h3>
+            <br />
+            <hr class="red-divider" />
+            <input type="text" /><br />
+            <md-input-container>
+                <input md-input placeholder="Rawr" />
+            </md-input-container>
         </div>
         <div class="column">
             <h3>IDK?</h3>
+            <p>Hmmmmm</p>
         </div>
     </div>
 </div>

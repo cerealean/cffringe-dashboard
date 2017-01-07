@@ -1,6 +1,10 @@
 import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 import {KioskComponent} from './kiosk.component';
 import {RouterModule, Routes} from '@angular/router';
+import {MaterialModule} from '@angular/material';
+import {MomentModule} from 'angular2-moment';
 
 const kioskRoutes: Routes = [
     {
@@ -11,7 +15,11 @@ const kioskRoutes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forChild(kioskRoutes)
+        RouterModule.forChild(kioskRoutes),
+        MaterialModule,
+        CommonModule,
+        MomentModule,
+        FormsModule
     ],
     declarations: [KioskComponent],
     exports: [
