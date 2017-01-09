@@ -2,3 +2,7 @@
     align-items: center;
     text-align: center;
 }
+
+.text-left-align{
+    text-align: left;
+}
