@@ -20,8 +20,7 @@ interface Name {
 
 @Component({
     templateUrl: './kiosk.component.html',
-    styleUrls: ['../app.component.css', './kiosk.component.css'],
-    moduleId: 'kiosk',
+    styleUrls: ['../app.component.css', './kiosk.component.css']
 })
 export class KioskComponent {
     classSections = [

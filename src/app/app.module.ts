@@ -5,31 +5,23 @@ import {HttpModule} from '@angular/http';
 import {MaterialModule} from '@angular/material';
 import {RouterModule, Routes} from '@angular/router';
 import 'hammerjs';
-
+import {KioskComponent} from './kiosk/kiosk.component';
 import {AppComponent} from './app.component';
-
-const appRoutes: Routes = [
-    {
-        path: '',
-        redirectTo: '/kiosk',
-        pathMatch: 'full'
-    },
-    {
-        path: 'kiosk',
-        loadChildren: './kiosk/kiosk.module#KioskModule'
-    }
-];
+import { WodAdminComponent } from './wod-admin/wod-admin.component';
+import { AppRoutingModule } from "app/app-routing.module";
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        WodAdminComponent,
+        KioskComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
-        RouterModule.forRoot(appRoutes),
-        MaterialModule.forRoot()
+        AppRoutingModule,
+        MaterialModule
     ],
     providers: [],
     bootstrap: [AppComponent]
