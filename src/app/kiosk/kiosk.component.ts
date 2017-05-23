@@ -8,9 +8,14 @@ export enum Sex {
 
 interface Athlete {
     id: number;
-    name: {first: string, last: string};
+    name: Name;
     avatarId: number;
     sex: Sex;
+}
+
+interface Name {
+    first: string;
+    last: string;
 }
 
 @Component({
