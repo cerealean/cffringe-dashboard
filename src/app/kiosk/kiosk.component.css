@@ -15,30 +15,6 @@
     background-color: rgba(80, 80, 80, 0.95);
 }
 
-/*@media screen and (max-device-height: 1080px) {
-    .column {
-        height: 900px;
-    }
-}
-
-@media screen and (max-device-height: 1080px) and (display-mode: fullscreen) {
-    .column {
-        height: 1000px;
-    }
-}
-
-@media screen and (max-device-height: 800px){
-    .column {
-        height: 660px;
-    }
-}
-
-@media screen and (max-device-height: 800px) and (display-mode: fullscreen) {
-    .column {
-        height: 715px;
-    }
-}*/
-
 #kiosk-page {
     background-size: contain;
     background: dimgrey url("/assets/images/wolfie.png") no-repeat center;

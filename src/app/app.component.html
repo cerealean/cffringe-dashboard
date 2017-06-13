@@ -1,5 +1,58 @@
-<md-toolbar class="application-toolbar center-items mat-primary">
-    <h1>CrossFit Fringe</h1>
-    <button md-button (click)="sidenav.open()">Menu</button>
-</md-toolbar>
+<section class="hero is-primary is-bold">
+  <div class="hero-head">
+    <header class="nav">
+      <div class="container">
+        <div class="nav-left">
+          <a class="nav-item">
+            Logo here!
+          </a>
+        </div>
+        <span class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <div class="nav-right nav-menu">
+          <a class="nav-item is-active">
+            Home
+          </a>
+          <a class="nav-item">
+            Examples
+          </a>
+          <a class="nav-item">
+            Documentation
+          </a>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        CrossFit Fringe
+      </h1>
+      <!--<h2 class="subtitle">
+        The Ultimate Outlier in Fitness
+      </h2>-->
+    </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <!--<div class="hero-foot">-->
+    <!--<nav class="tabs">
+      <div class="container">
+        <ul>
+          <li class="is-active"><a>Overview</a></li>
+          <li><a>Modifiers</a></li>
+          <li><a>Grid</a></li>
+          <li><a>Elements</a></li>
+          <li><a>Components</a></li>
+          <li><a>Layout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>-->
+</section>
 <router-outlet></router-outlet>
