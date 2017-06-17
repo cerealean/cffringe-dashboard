@@ -20,4 +20,15 @@ export class LoginService {
     return isValidPassword;
   }
 
+  private setLocalUserInformation(){
+    const fakeUserResponse = {
+      Id: 55,
+      FirstName: "Wendy",
+      LastName: "Crawford",
+      Token: "MyToken"
+    };
+
+    // localStorage.setItem("")
+  }
+
 }

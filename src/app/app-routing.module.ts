@@ -1,7 +1,7 @@
 import { NgModule }              from '@angular/core';
 import { RouterModule, Routes }  from '@angular/router';
-import {KioskComponent} from './kiosk/kiosk.component';
-import { WodAdminComponent } from './wod-admin/wod-admin.component';
+import {KioskComponent} from './components/kiosk/kiosk.component';
+import { WodAdminComponent } from './components/wod-admin/wod-admin.component';
 
 const appRoutes: Routes = [
     {
