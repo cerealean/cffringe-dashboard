@@ -10,7 +10,7 @@ export class LoginService {
     private authenticationService:AuthenticationService
   ) { }
 
-  login(username:string, password:string):boolean{
+  login(username:string, password:string):User{
     const currentDate = new Date().valueOf();
     const encryptedUsername = CryptoJS.AES.encrypt(username, currentDate.toString());
     const encryptedPassword = CryptoJS.AES.encrypt(password, currentDate.toString());
@@ -25,7 +25,7 @@ export class LoginService {
       this.setLocalUserInformation();
     }
 
-    return isValidPassword;
+    return this.authenticationService.getCurrentlyLoggedInUser();
   }
 
   private setLocalUserInformation(){

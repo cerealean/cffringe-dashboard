@@ -26,7 +26,7 @@
               <span>Home</span>
             </a>
           </span>
-          <span class="nav-item">
+          <span class="nav-item" [hidden]="user">
             <a class="button is-primary is-inverted" (click)="triggerLoginModal()">
               <span class="icon">
                 <i class="fa fa-sign-in"></i>
@@ -34,7 +34,7 @@
               <span>Sign In</span>
             </a>
           </span>
-          <span class="nav-item">
+          <span class="nav-item" [hidden]="!user">
             <a class="button is-primary is-inverted" 
               (click)="logout()" 
               [class.is-loading]="isLoggingOut">
@@ -53,3 +53,4 @@
   <span class="fa fa-chevron-up" [hidden]="!showNavigation"></span>
   <span class="fa fa-chevron-down" [hidden]="showNavigation"></span>
 </div>
+<app-login [showLoginModal]="showLoginModal" (onClose)="showLoginModal = false" (user)="setUser($event)"></app-login>

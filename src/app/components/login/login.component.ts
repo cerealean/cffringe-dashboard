@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { LoginService } from '../../services/login/login.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import { LoginService } from '../../services/login/login.service';
 export class LoginComponent implements OnInit {
   @Input() public showLoginModal:boolean = false;
   @Output() public onClose = new EventEmitter<boolean>();
+  @Output() public user = new EventEmitter<User>();
   public hasBlurredUsername:boolean = false;
   public hasBlurredPassword:boolean = false;
   public isValidUsername:boolean = false;
@@ -23,11 +25,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  closeModal(usernameElement:HTMLElement, passwordElement:HTMLElement){
+  closeModal(usernameElement:HTMLElement = null, passwordElement:HTMLElement = null){
     this.showLoginModal = false;
     this.onClose.emit(true);
-    (<HTMLInputElement>usernameElement).value = "";
-    (<HTMLInputElement>passwordElement).value = "";
     this.hasBlurredPassword = false;
     this.hasBlurredUsername = false;
     this.isValidUsername = false;
@@ -35,16 +35,29 @@ export class LoginComponent implements OnInit {
     this.isValidLogin = false;
     this.hasClickedLogin = false;
     this.isLoggingIn = false;
+    if(usernameElement){
+      (<HTMLInputElement>usernameElement).value = "";
+    }
+    if(passwordElement){
+      (<HTMLInputElement>passwordElement).value = "";
+    }
   }
 
   login(username:string, password:string){
     try{
-      this.isLoggingIn = true;
-      setTimeout(() => {
-        this.isLoggingIn = false;
-        this.hasClickedLogin = true;
-        this.isValidLogin = this.loginService.login(username, password);
-      }, 3000);
+      this.validateUsername(username);
+      this.validatePassword(password);
+      if(this.isValidUsername && this.isValidPassword){
+        this.isLoggingIn = true;
+        setTimeout(() => {
+          this.isLoggingIn = false;
+          this.hasClickedLogin = true;
+          const user = this.loginService.login(username, password);
+          this.isValidLogin = user != null;
+          this.user.emit(user);
+          this.closeModal();
+        }, 3000);
+      }
     }
     catch(exception){
       this.isLoggingIn = false;

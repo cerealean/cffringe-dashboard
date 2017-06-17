@@ -17,6 +17,7 @@
               placeholder="Username" 
               (blur)="validateUsername(username.value)"
               (keyup)="isValidUsername = true; hasBlurredUsername = false"
+              (keydown.enter)="login(username.value, password.value)"
               [class.is-success]="isValidUsername && hasBlurredUsername" 
               [class.is-danger]="!isValidUsername && hasBlurredUsername" />
             <span class="icon is-small is-left">
@@ -35,6 +36,7 @@
               placeholder="Password" 
               (blur)="validatePassword(password.value)"
               (keyup)="isValidPassword = true; hasBlurredPassword = false"
+              (keydown.enter)="login(username.value, password.value)"
               [class.is-success]="isValidPassword && hasBlurredPassword" 
               [class.is-danger]="!isValidPassword && hasBlurredPassword" />            
             <span class="icon is-small is-left">

@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { User } from '../../models/user';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,16 +9,26 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
   public showNavigation:boolean = true;
-  @Output() public showLoginModal = new EventEmitter<boolean>();
+  public showLoginModal = false;
   public isLoggingOut:boolean = false;
+  public user:User = null;
 
-  constructor() { }
+  constructor(
+    private authenticationService:AuthenticationService
+  ) { }
 
   ngOnInit() {
+    if(this.authenticationService.isUserLoggedIn()){
+      this.user = this.authenticationService.getCurrentlyLoggedInUser();
+    }
   }
 
   triggerLoginModal(){
-    this.showLoginModal.emit(true);
+    this.showLoginModal = true;
+  }
+
+  setUser(user:User){
+    this.user = user;
   }
 
   toggleNavigationVisability(navIcon:HTMLElement, navigation:HTMLElement){
@@ -27,6 +39,10 @@ export class NavBarComponent implements OnInit {
 
   logout(){
     this.isLoggingOut = true;
-    setTimeout(() => this.isLoggingOut = false, 3000);
+    this.authenticationService.clearCurrentlyLoggedInUser();
+    setTimeout(() => {
+      this.isLoggingOut = false;
+      this.user = this.authenticationService.getCurrentlyLoggedInUser();
+    }, 3000);
   }
 }
