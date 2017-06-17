@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
+import { AuthenticationService } from '../authentication/authentication.service';
+import { User } from '../../models/user';
 
 @Injectable()
 export class LoginService {
 
-  constructor() { }
+  constructor(
+    private authenticationService:AuthenticationService
+  ) { }
 
   login(username:string, password:string):boolean{
     const currentDate = new Date().valueOf();
@@ -17,18 +21,26 @@ export class LoginService {
 
     const isValidPassword = username == testUsername && password == testPassword;
 
+    if(isValidPassword){
+      this.setLocalUserInformation();
+    }
+
     return isValidPassword;
   }
 
   private setLocalUserInformation(){
-    const fakeUserResponse = {
-      Id: 55,
-      FirstName: "Wendy",
-      LastName: "Crawford",
-      Token: "MyToken"
+    const currentDate = new Date();
+    const fakeUserResponse:User = {
+      id: 55,
+      firstName: "Wendy",
+      lastName: "Crawford",
+      authentication: {
+        token: "myToken",
+        loggedIn: currentDate,
+        expires: new Date(currentDate.setHours(currentDate.getHours() + 3))
+      }
     };
-
-    // localStorage.setItem("")
+    this.authenticationService.setCurrentlyLoggedInUser(fakeUserResponse);
   }
 
 }
