@@ -1,5 +1,4 @@
-import { Component, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +6,8 @@ import { DOCUMENT } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  private document:Document;
   public showLoginModal:boolean = false;
 
-  constructor(@Inject(DOCUMENT) document:any){
-    this.document = <Document> document;
-  }
+  constructor(){}
 
 }
