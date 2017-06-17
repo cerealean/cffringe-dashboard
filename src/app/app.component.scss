@@ -12,15 +12,3 @@
 .font-white {
     color: $white;
 }
-
-.nav-icon {
-    position: absolute;
-    left: 5px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    background-color: $grey;
-}
-
-.nav-icon:hover{
-    cursor: pointer;
-}
