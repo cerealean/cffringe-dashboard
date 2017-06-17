@@ -1,2 +1,7 @@
 @import "./fringe-variables.scss";
 @import "~bulma/bulma";
+@import "~font-awesome/scss/font-awesome";
+
+*[hidden] {
+    display: none !important;
+}

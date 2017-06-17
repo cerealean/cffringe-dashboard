@@ -1,0 +1,55 @@
+<section class="hero is-primary is-bold" [hidden]="!showNavigation" #navigation>
+  <div class="hero-head">
+    <header class="nav">
+      <div class="container">
+        <div class="nav-left">
+          <a class="nav-item">
+            Logo here!
+          </a>
+        </div>
+        <div class="nav-center">
+          <a class="nav-item">
+            CrossFit Fringe
+          </a>
+        </div>
+        <span class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <div class="nav-right nav-menu">
+          <span class="nav-item">
+            <a class="button is-primary is-inverted">
+              <span class="icon">
+                <i class="fa fa-home"></i>
+              </span>
+              <span>Home</span>
+            </a>
+          </span>
+          <span class="nav-item">
+            <a class="button is-primary is-inverted" (click)="triggerLoginModal()">
+              <span class="icon">
+                <i class="fa fa-sign-in"></i>
+              </span>
+              <span>Sign In</span>
+            </a>
+          </span>
+          <span class="nav-item">
+            <a class="button is-primary is-inverted" 
+              (click)="logout()" 
+              [class.isLoggingOut]="isLoggingOut">
+              <span class="icon">
+                <i class="fa fa-sign-out"></i>
+              </span>
+              <span>Sign Out</span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </header>
+  </div>
+</section>
+<div class="icon nav-icon is-medium" (click)="toggleNavigationVisability(navIcon, navigation)" #navIcon>
+  <span class="fa fa-chevron-up" [hidden]="!showNavigation"></span>
+  <span class="fa fa-chevron-down" [hidden]="showNavigation"></span>
+</div>

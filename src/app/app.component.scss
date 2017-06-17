@@ -1,0 +1,26 @@
+@import '../assets/styles/fringe-variables';
+
+.center-items{
+    align-items: center;
+    text-align: center;
+}
+
+.text-left-align{
+    text-align: left;
+}
+
+.font-white {
+    color: $white;
+}
+
+.nav-icon {
+    position: absolute;
+    left: 5px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: $grey;
+}
+
+.nav-icon:hover{
+    cursor: pointer;
+}
