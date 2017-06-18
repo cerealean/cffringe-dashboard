@@ -28,6 +28,10 @@ export class LoginService {
     return this.authenticationService.getCurrentlyLoggedInUser();
   }
 
+  logout(){
+    this.authenticationService.clearCurrentlyLoggedInUser();
+  }
+
   private setLocalUserInformation(){
     const currentDate = new Date();
     const fakeUserResponse:User = {

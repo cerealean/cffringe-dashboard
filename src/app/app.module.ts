@@ -11,6 +11,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AuthenticationService } from './services/authentication/authentication.service';
 import { HomeComponent } from './components/home/home.component'
 import { MemberGuard } from './guards/member.guard';
+import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { MemberGuard } from './guards/member.guard';
         KioskComponent,
         LoginComponent,
         NavBarComponent,
-        HomeComponent
+        HomeComponent,
+        UserSettingsComponent
     ],
     imports: [
         BrowserModule,

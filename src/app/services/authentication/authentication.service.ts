@@ -9,7 +9,10 @@ export class AuthenticationService {
   private readonly currentUserKey:string = "currentUser";
   private isLoggedIn:boolean = false;
 
-  constructor() { }
+  constructor() { 
+      const serializedUser = localStorage.getItem(this.currentUserKey);
+      this.isLoggedIn = !!serializedUser;
+  }
 
   public getCurrentlyLoggedInUser():User{
     let user:User = null;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../models/user';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
 
@@ -16,7 +16,8 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     private authenticationService:AuthenticationService,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -47,9 +48,10 @@ export class NavBarComponent implements OnInit {
   logout(){
     this.isLoggingOut = true;
     this.authenticationService.clearCurrentlyLoggedInUser();
+    this.user = null;
     setTimeout(() => {
       this.isLoggingOut = false;
-      this.user = this.authenticationService.getCurrentlyLoggedInUser();
+      this.router.navigateByUrl("/home");
     }, 3000);
   }
 }
