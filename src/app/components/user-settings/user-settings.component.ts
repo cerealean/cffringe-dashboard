@@ -10,7 +10,7 @@ import { AuthenticationService } from '../../services/authentication/authenticat
 })
 export class UserSettingsComponent implements OnInit {
   public user:User = this.authenticationService.getCurrentlyLoggedInUser();
-  public isNavFixed:boolean = false;
+  public isMenuFixed:boolean = false;
   private document:Document;
 
   constructor(
@@ -33,11 +33,12 @@ export class UserSettingsComponent implements OnInit {
   onWindowScroll() {
     const currentLocationOfTopInPx = this.getWindowTopPosition();
     const menuElement = <HTMLElement>this.document.body.getElementsByClassName('menu')[0];
-    const heroBodyElementHeight = menuElement.offsetHeight;
-    if (currentLocationOfTopInPx > heroBodyElementHeight) {
-      this.isNavFixed = true;
-    } else if (this.isNavFixed && currentLocationOfTopInPx < heroBodyElementHeight) {
-      this.isNavFixed = false;
+    const heroElement = <HTMLElement>this.document.body.getElementsByClassName('hero')[0];
+    const heroElementHeight = heroElement.offsetHeight;
+    if (currentLocationOfTopInPx > heroElementHeight) {
+      this.isMenuFixed = true;
+    } else if (this.isMenuFixed && currentLocationOfTopInPx < heroElementHeight) {
+      this.isMenuFixed = false;
     }
   }
 
