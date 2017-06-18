@@ -12,6 +12,7 @@ import { AuthenticationService } from './services/authentication/authentication.
 import { HomeComponent } from './components/home/home.component'
 import { MemberGuard } from './guards/member.guard';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
+import { AppFooterComponent } from './components/app-footer/app-footer.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
         LoginComponent,
         NavBarComponent,
         HomeComponent,
-        UserSettingsComponent
+        UserSettingsComponent,
+        AppFooterComponent
     ],
     imports: [
         BrowserModule,
