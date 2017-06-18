@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../models/user';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,6 +14,7 @@ export class NavBarComponent implements OnInit {
   public showLoginModal = false;
   public isLoggingOut:boolean = false;
   public user:User = null;
+  public applicationName:string = environment.applicationName;
 
   constructor(
     private authenticationService:AuthenticationService,
