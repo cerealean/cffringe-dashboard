@@ -22,10 +22,15 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginService:LoginService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {  }
 
   closeModal(usernameElement:HTMLElement = null, passwordElement:HTMLElement = null){
+    if(usernameElement){
+      (<HTMLInputElement>usernameElement).value = "";
+    }
+    if(passwordElement){
+      (<HTMLInputElement>passwordElement).value = "";
+    }
     this.showLoginModal = false;
     this.onClose.emit(true);
     this.hasBlurredPassword = false;
@@ -35,27 +40,25 @@ export class LoginComponent implements OnInit {
     this.isValidLogin = false;
     this.hasClickedLogin = false;
     this.isLoggingIn = false;
-    if(usernameElement){
-      (<HTMLInputElement>usernameElement).value = "";
-    }
-    if(passwordElement){
-      (<HTMLInputElement>passwordElement).value = "";
-    }
   }
 
-  login(username:string, password:string){
+  login(username:HTMLElement, password:HTMLElement){
     try{
-      this.validateUsername(username);
-      this.validatePassword(password);
+      const usernameValue = (<HTMLInputElement>username).value;
+      const passwordValue = (<HTMLInputElement>password).value;
+      this.validateUsername(usernameValue);
+      this.validatePassword(passwordValue);
       if(this.isValidUsername && this.isValidPassword){
         this.isLoggingIn = true;
         setTimeout(() => {
           this.isLoggingIn = false;
           this.hasClickedLogin = true;
-          const user = this.loginService.login(username, password);
+          const user = this.loginService.login(usernameValue, passwordValue);
           this.isValidLogin = user != null;
-          this.user.emit(user);
-          this.closeModal();
+          if(this.isValidLogin){
+            this.user.emit(user);
+            this.closeModal(username, password);
+          }
         }, 3000);
       }
     }

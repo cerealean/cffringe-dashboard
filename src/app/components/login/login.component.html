@@ -17,7 +17,7 @@
               placeholder="Username"
               (blur)="validateUsername(username.value)"
               (keyup)="isValidUsername = true; hasBlurredUsername = false"
-              (keydown.enter)="login(username.value, password.value)"
+              (keydown.enter)="login(username, password)"
               [class.is-success]="isValidUsername && hasBlurredUsername" 
               [class.is-danger]="!isValidUsername && hasBlurredUsername" />
             <span class="icon is-small is-left">
@@ -36,7 +36,7 @@
               placeholder="Password" 
               (blur)="validatePassword(password.value)"
               (keyup)="isValidPassword = true; hasBlurredPassword = false"
-              (keydown.enter)="login(username.value, password.value)"
+              (keydown.enter)="login(username, password)"
               [class.is-success]="isValidPassword && hasBlurredPassword" 
               [class.is-danger]="!isValidPassword && hasBlurredPassword" />            
             <span class="icon is-small is-left">
@@ -51,7 +51,7 @@
       <button 
         class="button is-success" 
         [class.is-loading]="isLoggingIn" 
-        (click)="login(username.value, password.value)"
+        (click)="login(username, password)"
         [disabled]="!isValidUsername || !isValidPassword">Login</button>
       <a class="button" (click)="closeModal(username, password)">Cancel</a>
       <p class="help is-danger" [hidden]="!hasClickedLogin || isValidLogin">Your username and/or password are invalid</p>
