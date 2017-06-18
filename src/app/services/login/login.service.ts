@@ -38,6 +38,7 @@ export class LoginService {
       id: 55,
       firstName: "Wendy",
       lastName: "Crawford",
+      email: "wendy.crawford@fakemail.com",
       authentication: {
         token: "myToken",
         loggedIn: currentDate,

@@ -1,3 +1,118 @@
-<p>
-  user-settings works!
-</p>
+<section class="section">
+  <div class="columns is-gapless">
+    <div class="column is-3">
+      <div class="section">
+        <aside class="menu">
+          <p class="menu-label">
+            Personal Info
+          </p>
+          <ul class="menu-list">
+            <li><a (click)="doFocus(firstName.name)">First Name</a></li>
+            <li><a (click)="doFocus(lastName.name)">Last Name</a></li>
+            <li><a (click)="doFocus(email.name)">Email</a></li>
+            <li><a (click)="doFocus(phone.name)">Phone</a></li>
+          </ul>
+          <p class="menu-label">
+            Gym Settings
+          </p>
+          <ul class="menu-list">
+            <li><a (click)="doFocus(gym.name)">Your Gym</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+
+    <div class="column">
+      <section class="section">
+        <div class="container">
+          <div class="content">
+
+            <div class="field">
+              <label class="label">First Name</label>
+              <p class="control has-icons-left">
+                <input class="input form-control" 
+                  type="text" 
+                  placeholder="First Name" 
+                  required 
+                  #firstName="ngModel"
+                  [(ngModel)]="user.firstName" 
+                  [class.is-danger]="firstName.errors"
+                  name="firstName" />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-user"></i>
+                </span>
+              </p>
+            </div>
+
+            <div class="field">
+              <label class="label">Last Name</label>
+              <p class="control has-icons-left">
+                <input class="input form-control" 
+                  type="text" 
+                  placeholder="Last Name" 
+                  required 
+                  #lastName="ngModel"
+                  [(ngModel)]="user.lastName" 
+                  [class.is-danger]="lastName.errors"
+                  name="lastName" />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-user"></i>
+                </span>
+              </p>
+            </div>
+
+            <div class="field">
+              <label class="label">Email</label>
+              <p class="control has-icons-left">
+                <input class="input form-control" 
+                  type="email" 
+                  placeholder="Email" 
+                  email
+                  #email="ngModel"
+                  required 
+                  [class.is-danger]="email.errors"
+                  [(ngModel)]="user.email" 
+                  name="email" />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-envelope-o"></i>
+                </span>
+              </p>
+            </div>
+
+            <div class="field">
+              <label class="label">Phone</label>
+              <p class="control has-icons-left">
+                <input class="input form-control" 
+                  type="tel" 
+                  #phone="ngModel"
+                  [class.is-danger]="phone.errors"
+                  [(ngModel)]="user.phone" 
+                  name="phone" />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-phone"></i>
+                </span>
+              </p>
+            </div>
+
+            <hr />
+
+            <div class="field">
+              <label class="label">Gym</label>
+              <p class="control has-icons-left">
+                <input class="input form-control" 
+                  type="text" 
+                  #gym="ngModel"
+                  [class.is-danger]="gym.errors"
+                  [(ngModel)]="user.gym" 
+                  name="gym" />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-search"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
