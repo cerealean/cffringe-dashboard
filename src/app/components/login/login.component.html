@@ -14,7 +14,7 @@
               class="input" 
               type="text" 
               #username
-              placeholder="Username" 
+              placeholder="Username"
               (blur)="validateUsername(username.value)"
               (keyup)="isValidUsername = true; hasBlurredUsername = false"
               (keydown.enter)="login(username.value, password.value)"

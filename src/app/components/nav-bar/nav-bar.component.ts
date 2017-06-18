@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { User } from '../../models/user';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
 
@@ -14,13 +15,19 @@ export class NavBarComponent implements OnInit {
   public user:User = null;
 
   constructor(
-    private authenticationService:AuthenticationService
+    private authenticationService:AuthenticationService,
+    private route:ActivatedRoute
   ) { }
 
   ngOnInit() {
     if(this.authenticationService.isUserLoggedIn()){
       this.user = this.authenticationService.getCurrentlyLoggedInUser();
     }
+  }
+
+  getCurrentRoute():string{
+    console.log(this.route.toString());
+    return this.route.toString();
   }
 
   triggerLoginModal(){

@@ -7,8 +7,6 @@ import { User } from './models/user';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public showLoginModal:boolean = false;
-  public user:User = null;
 
   constructor(){}
 

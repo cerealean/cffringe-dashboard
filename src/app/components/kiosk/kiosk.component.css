@@ -15,12 +15,6 @@
     background-color: rgba(80, 80, 80, 0.95);
 }
 
-#kiosk-page {
-    background-size: contain;
-    background: dimgrey url("/assets/images/wolfie.png") no-repeat center;
-    color: white;
-}
-
 .cf-select {
     background: #f2f2f2;
     border-color: white #f7f7f7 whitesmoke;
