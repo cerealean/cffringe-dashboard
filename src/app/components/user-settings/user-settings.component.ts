@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { User } from '../../models/user';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
+import { asYouType, isValidNumber } from 'libphonenumber-js';
 
 @Component({
   selector: 'app-user-settings',
@@ -11,6 +12,7 @@ import { AuthenticationService } from '../../services/authentication/authenticat
 export class UserSettingsComponent implements OnInit {
   public user:User = this.authenticationService.getCurrentlyLoggedInUser();
   public isMenuFixed:boolean = false;
+  public isPhoneNumberValid:boolean = true;
   private document:Document;
 
   constructor(
@@ -21,6 +23,7 @@ export class UserSettingsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.formatPhoneNumber();
   }
 
   doFocus(name:string){
@@ -40,6 +43,11 @@ export class UserSettingsComponent implements OnInit {
     } else if (this.isMenuFixed && currentLocationOfTopInPx < heroElementHeight) {
       this.isMenuFixed = false;
     }
+  }
+
+  formatPhoneNumber(){
+    this.user.phone = new asYouType('US').input(this.user.phone);
+    this.isPhoneNumberValid = isValidNumber(this.user.phone, 'US');
   }
 
   private getWindowTopPosition(): number{

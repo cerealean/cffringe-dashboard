@@ -34,16 +34,16 @@ export class LoginService {
 
   private setLocalUserInformation(){
     const currentDate = new Date();
-    const fakeUserResponse:User = {
-      id: 55,
-      firstName: "Wendy",
-      lastName: "Crawford",
-      email: "wendy.crawford@fakemail.com",
-      authentication: {
-        token: "myToken",
-        loggedIn: currentDate,
-        expires: new Date(currentDate.setHours(currentDate.getHours() + 3))
-      }
+    const fakeUserResponse = new User();
+    fakeUserResponse.id = 55;
+    fakeUserResponse.firstName = "Wendy";
+    fakeUserResponse.lastName = "Crawford";
+    fakeUserResponse.email = "wendy.crawford@fakemail.com";
+    fakeUserResponse.phone = "5739794671";
+    fakeUserResponse.authentication = {
+      token: "myToken",
+      loggedIn: currentDate,
+      expires: new Date(currentDate.setHours(currentDate.getHours() + 3))
     };
     this.authenticationService.setCurrentlyLoggedInUser(fakeUserResponse);
   }

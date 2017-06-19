@@ -1,5 +1,5 @@
 <section class="section">
-  <div class="columns is-gapless">
+  <div class="columns">
     <div class="column is-3">
       <div class="section">
         <aside class="menu" [class.is-menu-fixed]="isMenuFixed">
@@ -85,8 +85,10 @@
                 <input class="input form-control" 
                   type="tel" 
                   #phone="ngModel"
-                  [class.is-danger]="phone.errors"
+                  [class.is-danger]="!isPhoneNumberValid"
                   [(ngModel)]="user.phone" 
+                  (keydown)="formatPhoneNumber()"
+                  (blur)="formatPhoneNumber()"
                   name="phone" />
                 <span class="icon is-small is-left">
                   <i class="fa fa-phone"></i>
