@@ -55,7 +55,7 @@
               <span class="icon">
                 <i class="fa fa-user"></i>
               </span>
-              <span>{{user && user.firstName}}</span>
+              <span>{{user?.firstName}}</span>
             </a>
           </span>
           <span class="nav-item" [hidden]="!user">
@@ -74,7 +74,7 @@
   </div>
 </section>
 <div class="icon nav-icon is-medium" (click)="toggleNavigationVisability(navIcon, navigation)" #navIcon>
-  <span class="fa fa-chevron-up" [hidden]="!showNavigation"></span>
-  <span class="fa fa-chevron-down" [hidden]="showNavigation"></span>
+  <span class="fa fa-bars" [hidden]="!showNavigation"></span>
+  <span class="fa fa-bars" [hidden]="showNavigation"></span>
 </div>
 <app-login [showLoginModal]="showLoginModal" (onClose)="showLoginModal = false" (user)="setUser($event)"></app-login>

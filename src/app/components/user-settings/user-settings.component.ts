@@ -13,6 +13,7 @@ export class UserSettingsComponent implements OnInit {
   public user:User = this.authenticationService.getCurrentlyLoggedInUser();
   public isMenuFixed:boolean = false;
   public isPhoneNumberValid:boolean = true;
+  public hasUnsavedChanges:boolean = false;
   private document:Document;
 
   constructor(
@@ -43,6 +44,17 @@ export class UserSettingsComponent implements OnInit {
     } else if (this.isMenuFixed && currentLocationOfTopInPx < heroElementHeight) {
       this.isMenuFixed = false;
     }
+  }
+
+  @HostListener("window:beforeunload", [])
+  onPageNavigation() {
+    let allowPageNavigation = true;
+
+    if(this.hasUnsavedChanges === true){
+      allowPageNavigation = confirm("There are unsaved changes. Would you still like to leave the page?");
+    }
+
+    return allowPageNavigation;
   }
 
   formatPhoneNumber(){
