@@ -3,12 +3,12 @@ import { AuthenticationService } from '../../services/authentication/authenticat
 import { User } from '../../models/user';
 
 @Component({
-  selector: 'app-wod-admin',
   templateUrl: './wod-admin.component.html',
   styleUrls: ['./wod-admin.component.css']
 })
 export class WodAdminComponent implements OnInit {
-  public user:User = this.authenticationService.getCurrentlyLoggedInUser();
+  public user: User = this.authenticationService.getCurrentlyLoggedInUser();
+  public gym = {};
 
   constructor(
     private authenticationService:AuthenticationService,

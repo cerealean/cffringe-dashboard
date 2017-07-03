@@ -14,6 +14,7 @@ import { MemberGuard } from './guards/member.guard';
 import { UserSettingsDeactivateGuard } from "./guards/user-settings-deactivate.guard";
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
+import { GymAdminComponent } from './components/gym-admin/gym-admin.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { AppFooterComponent } from './components/app-footer/app-footer.component
         NavBarComponent,
         HomeComponent,
         UserSettingsComponent,
-        AppFooterComponent
+        AppFooterComponent,
+        GymAdminComponent
     ],
     imports: [
         BrowserModule,

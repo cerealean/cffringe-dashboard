@@ -1,0 +1,41 @@
+<section class="section">
+  <div class="columns">
+    <div class="column is-3">
+      <div class="section">
+        <aside class="menu" [class.is-menu-fixed]="isMenuFixed">
+          <p class="menu-label">
+            Gym Info
+          </p>
+          <ul class="menu-list">
+            <li><a (click)="doFocus(firstName.name)">Name</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+
+    <div class="column">
+      <section class="section">
+        <div class="container">
+          <div class="content">
+            <div class="field">
+              <label class="label">Gym Name</label>
+              <p class="control has-icons-left">
+                <input class="input form-control" 
+                  type="text" 
+                  placeholder="Gym Name" 
+                  required 
+                  #gymName="ngModel" 
+                  [(ngModel)]="gym.name" 
+                  [class.is-danger]="gymName.errors"
+                  name="gymName" />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-user"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
