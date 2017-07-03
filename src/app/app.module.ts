@@ -11,6 +11,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AuthenticationService } from './services/authentication/authentication.service';
 import { HomeComponent } from './components/home/home.component'
 import { MemberGuard } from './guards/member.guard';
+import { UserSettingsDeactivateGuard } from "./guards/user-settings-deactivate.guard";
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
 
@@ -31,7 +32,7 @@ import { AppFooterComponent } from './components/app-footer/app-footer.component
         HttpModule,
         AppRoutingModule
     ],
-    providers: [AuthenticationService, MemberGuard],
+    providers: [AuthenticationService, MemberGuard, UserSettingsDeactivateGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

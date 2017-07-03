@@ -47,7 +47,7 @@ export class UserSettingsComponent implements OnInit {
   }
 
   @HostListener("window:beforeunload", [])
-  onPageNavigation() {
+  onPageNavigation():boolean {
     let allowPageNavigation = true;
 
     if(this.hasUnsavedChanges === true){
@@ -55,6 +55,10 @@ export class UserSettingsComponent implements OnInit {
     }
 
     return allowPageNavigation;
+  }
+
+  markChangesMade() {
+    this.hasUnsavedChanges = true;
   }
 
   formatPhoneNumber(){

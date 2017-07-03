@@ -34,6 +34,7 @@
                   type="text" 
                   placeholder="First Name" 
                   required 
+                  (keydown)="markChangesMade()"
                   #firstName="ngModel"
                   [(ngModel)]="user.firstName" 
                   [class.is-danger]="firstName.errors"
@@ -51,6 +52,7 @@
                   type="text" 
                   placeholder="Last Name" 
                   required 
+                  (keydown)="markChangesMade()"
                   #lastName="ngModel"
                   [(ngModel)]="user.lastName" 
                   [class.is-danger]="lastName.errors"
@@ -68,6 +70,7 @@
                   type="email" 
                   placeholder="Email" 
                   email
+                  (keydown)="markChangesMade()"
                   #email="ngModel"
                   required 
                   [class.is-danger]="email.errors"
@@ -88,6 +91,7 @@
                   [class.is-danger]="!isPhoneNumberValid"
                   [(ngModel)]="user.phone" 
                   (keydown)="formatPhoneNumber()"
+                  (keydown)="markChangesMade()"
                   (blur)="formatPhoneNumber()"
                   name="phone" />
                 <span class="icon is-small is-left">
@@ -105,6 +109,7 @@
                   type="text" 
                   #gym="ngModel"
                   [class.is-danger]="gym.errors"
+                  (keydown)="markChangesMade()"
                   [(ngModel)]="user.gym" 
                   name="gym" />
                 <span class="icon is-small is-left">

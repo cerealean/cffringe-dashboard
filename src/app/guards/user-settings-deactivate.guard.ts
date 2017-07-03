@@ -5,11 +5,12 @@ import { UserSettingsComponent } from '../components/user-settings/user-settings
 
 @Injectable()
 export class UserSettingsDeactivateGuard implements CanDeactivate<UserSettingsComponent> {
-    canDeactivate(
+    public canDeactivate(
       component: UserSettingsComponent, 
       currentRoute: ActivatedRouteSnapshot, 
       currentState: RouterStateSnapshot, 
-      nextState?: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
+      nextState?: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean>
+    {
         return component.onPageNavigation();
     }
 }
