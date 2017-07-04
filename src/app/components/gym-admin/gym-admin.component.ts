@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from "../../services/authentication/authentication.service";
 import { User } from "../../models/user";
 import { GymService } from "app/services/gym/gym.service";
+import { Gym } from "app/models/gym";
 
 @Component({
   templateUrl: "./gym-admin.component.html",
@@ -16,9 +17,11 @@ export class GymAdminComponent implements OnInit {
     private gymService: GymService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getGymForUser();
+  }
   
   private getGymForUser() {
-    this.gymService.getGymFromUserId(this.user.id).subscribe((response:Response) => this.gym = response.json());
+    this.gymService.getGymFromUserId(this.user.id).subscribe((gym:Gym) => this.gym = gym);
   }
 }
