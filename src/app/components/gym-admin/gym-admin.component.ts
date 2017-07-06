@@ -10,7 +10,7 @@ import { Gym } from "app/models/gym";
 })
 export class GymAdminComponent implements OnInit {
   public user: User = this.authenticationService.getCurrentlyLoggedInUser();
-  public gym = {};
+  public gym:Gym;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -22,6 +22,11 @@ export class GymAdminComponent implements OnInit {
   }
   
   private getGymForUser() {
-    this.gymService.getGymFromUserId(this.user.id).subscribe((gym:Gym) => this.gym = gym);
+    this.gymService
+      .getGymFromUserId(this.user.id)
+      .subscribe(
+      (gym: Gym) => this.gym = gym,
+      (error) => alert("There was an error retrieving your gym information")  
+      );
   }
 }
